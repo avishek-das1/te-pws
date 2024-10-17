@@ -1,4 +1,4 @@
-# Transfer Entropy- Path Weight Sampling
+# Transfer Entropy-Path Weight Sampling (TE-PWS)
 Curated code and data for reproducing the findings in _Exact computation of transfer entropy with Path Weight Sampling_, Avishek Das & Pieter Rein ten Wolde, [arxiv:2409.01650](https://arxiv.org/abs/2409.01650) (2024).
 
 The curated codes are for computing transfer entropies with the TE-PWS algorithm in a 3D Langevin model (`TEPWS_OU_3D_transferentropies.py`) and a 3D Chemical Reaction Network (`TEPWS_jump_3D_transferentropies.py`). The code imports the libraries numpy, math, sys and numba, so they must first be installed in the python version of your system. The code then runs in parallel using all available cores.
