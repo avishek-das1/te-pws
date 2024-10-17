@@ -1,7 +1,7 @@
-#Algorithm for Transfer Entropy- Path Weight Sampling (TE-PWS) in a 3-dimensional OU process where den
+#Algorithm for Transfer Entropy- Path Weight Sampling (TE-PWS) in a 3-dimensional OU process
 #Output is the Monte-Carlo estimate of MI and all transfer entropies
 #Written by Avishek Das, Aug 30, 2024
-#For different expressions for drifts, change only the forcex, forcey, forcez, force0x, force0y, force0z subroutines
+#For other functional forms for the drift, change only the forcex, forcey, forcez, force0x, force0y, force0z subroutines
 
 import numpy as np
 import sys
@@ -1025,7 +1025,7 @@ def rrpws(s):
     M=np.shape(stepmags)[0] #calculate transfer entropies for all timesteps 
 
     Iestxz=np.zeros((N,M)) #holder for mutual information
-    Kctxyd=np.zeros(N) #holder for the number of pruning/enrichment, purely for studying the efficiency of the algorithm 
+    Kctxyd=np.zeros(N) #holder for the number of resampling steps, purely for studying the efficiency of the algorithm 
     Kctyzd=np.zeros(N)
     Kctyd=np.zeros(N)
     Tvalsxz=np.zeros((N,M,2)) #holder for transfer entropies
