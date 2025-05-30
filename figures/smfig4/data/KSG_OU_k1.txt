@@ -1,0 +1,9 @@
+Two columns of first four rows are TE estimate and 2*std dev
+First three rows are TE rate estimates with N*M1/3, N*M1/2 and N*M1 amount of data respectively
+Fourth row is TE rate estimate from an extrapolation to N*M1->infinity
+Fifth row first column is irrelevant, second column is the total cpu hours
+0.0925083798744375 0.025975059881130632
+0.09736970410457735 0.021259258162636782
+0.08928008862399806 0.01795384479831526
+0.0898244390154121 0.03388674991861868
+0	9.550366666666667
