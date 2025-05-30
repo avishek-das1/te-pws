@@ -19,8 +19,10 @@ from numba import jit
 from io import StringIO
 import os.path
 
-plt.rc('font', size = 30)
-plt.rc('text', usetex=True)
+plt.rc('font', size = 28)
+#plt.rc('text', usetex=True)
+plt.rc('mathtext',rm='dejavusans')
+plt.rc('mathtext',fontset='dejavusans')
 
 fig = plt.figure(figsize = (22, 7))
 gs= fig.add_gridspec(1,2,top=0.95,hspace=0.,wspace=0.23)
@@ -60,8 +62,8 @@ Twme[:,1]=2*(np.var(Twvalsxy[:cnt],axis=0)/cnt)**0.5
 
 gtruth=Ime[-1,0]
 
-ax00.errorbar(ttot[::MM],Tme[::MM,0],yerr=Tme[::MM,1],marker='o',color='r',ms=15,fillstyle='none',mew=2,linestyle='None',capsize=5,label=r'$\mathcal{T}_{X\to Y}^{(\mathrm{J})}$')
-ax00.errorbar(ttot[::MM],Twme[::MM,0],yerr=Twme[::MM,1],marker='^',color='b',ms=15,fillstyle='none',mew=2,linestyle='None',capsize=5,label=r'$\mathcal{T}_{X\to Y}^{(\mathrm{J}+\mathrm{E})}$')
+ax00.errorbar(ttot[::MM],Tme[::MM,0],yerr=Tme[::MM,1],marker='o',color='r',ms=15,fillstyle='none',mew=2,linestyle='None',capsize=5,label=r'$\mathcal{T}_{X\to Y}^{~(\mathrm{J})}$')
+ax00.errorbar(ttot[::MM],Twme[::MM,0],yerr=Twme[::MM,1],marker='^',color='b',ms=15,fillstyle='none',mew=2,linestyle='None',capsize=5,label=r'$\mathcal{T}_{X\to Y}^{~(\mathrm{J}+\mathrm{E})}$')
 ax00.plot(ttot[::MM],Ime[::MM,0],marker='None',color='k',ms=10,fillstyle='none',mew=2.5,linestyle='--',lw=2,label=r'$\mathrm{PWS}$')
 
 ax00.set_xlabel(r'$T~[1/k_{-1}]$')
@@ -80,8 +82,8 @@ for p in range(P):
     Twmes[p,1]=2.*(np.var((Twvalsxy[:cnt,-1]-gtruth))/cnt)**0.5
 
 Ns*=160
-ax01.errorbar(Ns,Tmes[:,0],yerr=Tmes[:,1],marker='s',color='darkorange',ms=15,fillstyle='none',mew=2,linestyle='None',capsize=5,label=r'$\mathrm{Error~in~}\mathcal{T}_{X\to Y}^{(\mathrm{J})}(T=0.2)$')
-ax01.errorbar(Ns,Twmes[:,0],yerr=Twmes[:,1],marker='x',color='green',ms=15,fillstyle='none',mew=2,linestyle='None',capsize=5,label=r'$\mathrm{Error~in~}\mathcal{T}_{X\to Y}^{(\mathrm{J}+\mathrm{E})}(T=0.2)$')
+ax01.errorbar(Ns,Tmes[:,0],yerr=Tmes[:,1],marker='s',color='darkorange',ms=15,fillstyle='none',mew=2,linestyle='None',capsize=5,label=r'$\mathrm{Error~in~}\mathcal{T}_{X\to Y}^{~(\mathrm{J})}(T=0.2)$')
+ax01.errorbar(Ns,Twmes[:,0],yerr=Twmes[:,1],marker='x',color='green',ms=15,fillstyle='none',mew=2,linestyle='None',capsize=5,label=r'$\mathrm{Error~in~}\mathcal{T}_{X\to Y}^{~(\mathrm{J}+\mathrm{E})}(T=0.2)$')
 ax01.set_xlabel(r'$M_{1}$')
 ax01.set_ylabel(r'$\mathrm{Error~in~}\mathcal{T}_{X\to Y}(T=0.2)~[\mathrm{nats}]$')
 ax01.set_xscale('log')
