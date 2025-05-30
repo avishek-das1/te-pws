@@ -23,8 +23,10 @@ from matplotlib.patches import Rectangle, FancyBboxPatch
 #mpl.rcParams['mathtext.fontset'] = 'cm'
 #mpl.rcParams['mathtext.rm'] = 'serif'
 #mpl.rcParams.update({'font.size': 22})
-plt.rc('font', size = 46)
-plt.rc('text', usetex = True)
+plt.rc('font', size = 36)
+#plt.rc('text', usetex = True)
+plt.rc('mathtext',rm='dejavusans')
+plt.rc('mathtext',fontset='dejavusans')
 
 fig = plt.figure(figsize = (10, 12))
 plt.subplots_adjust(hspace=0.5,wspace=0.3)
@@ -33,7 +35,7 @@ ax00=fig.add_subplot(gs[0,0])
 
 schmn=mpimg.imread('schematic.png')
 print(schmn.shape)
-schm=schmn[10:-80,190:1440,:]
+schm=schmn[10:-80,190:1420,:]
 imagebox1 = OffsetImage(schm, zoom=1)
 ab1 = AnnotationBbox(imagebox1, (0.5,0.5),frameon=False,pad=0.1,xycoords='axes fraction')
 ax00.add_artist(ab1)
@@ -70,26 +72,26 @@ ax00.annotate(r'$X_{l,[0,k]}$',xy=(-0.57,1.14),xycoords='axes fraction',zorder=n
 ax00.annotate(r'$X_{j,[0,k]}$',xy=(-0.57,0.9),xycoords='axes fraction',zorder=np.inf)
 ax00.annotate(r'$X_{j}(k+1)$',xy=(1.25,0.9),xycoords='axes fraction',zorder=np.inf)
 
-ax00.annotate(r'$\Delta\mathcal{T}^{i\to j}_{[k,k+1]}$',xy=(0.76,1.33),xycoords='axes fraction',zorder=np.inf)
+ax00.annotate(r'$\mathcal{T}_{X_{i}\to X_{j}}^{~[k]}$',xy=(0.76,1.33),xycoords='axes fraction',zorder=np.inf)
 
-xs1=-0.42
+xs1=-0.47
 ys1=-0.02
 
-rounded_rect = FancyBboxPatch((0.99+xs1, 0.64+ys1), 0.145, 0.09, transform=ax00.transData,boxstyle='Round, pad=0,rounding_size=0.015', color='#fff2ccff', clip_on=False,zorder=np.inf)
+rounded_rect = FancyBboxPatch((0.99+xs1, 0.64+ys1), 0.135, 0.09, transform=ax00.transData,boxstyle='Round, pad=0,rounding_size=0.015', color='#fff2ccff', clip_on=False,zorder=np.inf)
 ax00.add_patch(rounded_rect)
-rounded_rect = FancyBboxPatch((1.165+xs1, 0.64+ys1), 0.14, 0.09, transform=ax00.transData,boxstyle='Round, pad=0,rounding_size=0.015', color='#f4ccccff', clip_on=False,zorder=np.inf)
+rounded_rect = FancyBboxPatch((1.145+xs1, 0.64+ys1), 0.13, 0.09, transform=ax00.transData,boxstyle='Round, pad=0,rounding_size=0.015', color='#f4ccccff', clip_on=False,zorder=np.inf)
 ax00.add_patch(rounded_rect)
-rounded_rect = FancyBboxPatch((0.75+xs1, 0.64+ys1), 0.22, 0.09, transform=ax00.transData,boxstyle='Round, pad=0,rounding_size=0.015', color='#d9ead3ff', clip_on=False,zorder=np.inf)
+rounded_rect = FancyBboxPatch((0.79+xs1, 0.64+ys1), 0.17, 0.09, transform=ax00.transData,boxstyle='Round, pad=0,rounding_size=0.015', color='#d9ead3ff', clip_on=False,zorder=np.inf)
 ax00.add_patch(rounded_rect)
 
-ax00.annotate(r'$\Delta\mathcal{T}^{i\to j}_{[k,k+1]}=I\;(\; X_{j}(k+1)\; ;\;X_{i,[0,k]}\;| \; X_{j,[0,k]}\;)$',xy=(-0.27,0.65),xycoords='axes fraction',zorder=np.inf)
+ax00.annotate(r'$\mathcal{T}_{X_{i}\to X_{j}}^{~[k]}=I\;(\; X_{j}(k+1)\; ;\;X_{i,[0,k]}\;| \; X_{j,[0,k]}\;)$',xy=(-0.1,0.65),xycoords='axes fraction',zorder=np.inf)
 
 ax00.annotate(r'$X_{j,[0,N]}^{(\nu)}$',xy=(0.95,0.4),xycoords='axes fraction',zorder=np.inf)
 ax00.annotate(r'$X_{i,[0,k]}^{(\mu)}$',xy=(0.31,0.2),xycoords='axes fraction',zorder=np.inf)
 ax00.annotate(r'$X_{l,[0,k]}^{(\mu)}$',xy=(0.31,0.07),xycoords='axes fraction',zorder=np.inf)
 #ax00.annotate(r'$P_{0}(X_{i,[0,k]}^{(\mu)},X_{l,[0,k]}^{(\mu)})$',xy=(0.31,0.17),xycoords='axes fraction',zorder=np.inf)
-ax00.annotate(r'Sample from',xy=(1.09,0.17),xycoords='axes fraction',zorder=np.inf)
-ax00.annotate(r'$P_{0}(X_{i,[0,k]},X_{l,[0,k]})$',xy=(0.93,0.07),xycoords='axes fraction',zorder=np.inf)
+ax00.annotate(r'Sample from',xy=(1.1,0.14),xycoords='axes fraction',zorder=np.inf)
+ax00.annotate(r'$P_{0}(X_{i,[0,k]},X_{l,[0,k]})$',xy=(0.97,0.07),xycoords='axes fraction',zorder=np.inf)
 
 ax00.annotate(r'propagate dynamics',xy=(-0.35,-0.37),xycoords='axes fraction',zorder=np.inf)
 ax00.annotate(r'to sample from $P_{0}$',xy=(-0.33,-0.45),xycoords='axes fraction',zorder=np.inf)
